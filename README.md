@@ -1,4 +1,5 @@
 ## Replication PostreSQL to Elasticsearch via Logical replication slots
+[![pg-replicate-elastic](https://img.shields.io/pypi/v/pg-replicate-elastic.svg?style=flat)](https://pypi.org/project/pg-replicate-elastic/)
 
 ### Demo
 [![asciicast](https://asciinema.org/a/177922.svg)](https://asciinema.org/a/177922)
