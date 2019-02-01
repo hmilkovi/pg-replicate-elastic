@@ -1,5 +1,8 @@
 ## Replication PostreSQL to Elasticsearch via Logical replication slots
 
+### Demo
+[![asciicast](https://asciinema.org/a/177922.svg)](https://asciinema.org/a/177922)
+
 
 ### Install (Python2)
 
