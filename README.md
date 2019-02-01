@@ -1,7 +1,7 @@
 ## Replication PostreSQL to Elasticsearch via Logical replication slots
 
 
-### Install
+### Install (Python2)
 
 ```
 $ pip install pg-replicate-elastic
