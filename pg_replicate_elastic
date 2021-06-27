@@ -67,7 +67,7 @@ class PgReplicateElastic(object):
             u'primary_key'
         ]
 
-        if len(self.config.keys()).sort() != valid_keys.sort():
+        if self.config.keys().sort() != valid_keys.sort():
             print('Invalid configuration')
             return False
 
