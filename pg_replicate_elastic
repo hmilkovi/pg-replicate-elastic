@@ -43,10 +43,10 @@ class PgReplicateElastic(object):
     def _validate_config(self):
         valid_keys = [
             u'replication_slot',
-            u'tables',
-            u'es_connection',
             u'postgres',
-            u'inital_sync'
+            u'es_connection',
+            u'inital_sync',
+            u'tables'
         ]
 
         replication_slot_valid_keys = [
@@ -67,16 +67,16 @@ class PgReplicateElastic(object):
             u'primary_key'
         ]
 
-        if len(self.config.keys()) != len(valid_keys):
+        if self.config.keys().sort() != valid_keys.sort():
             print('Invalid configuration')
             return False
 
-        if len(self.config['replication_slot'].keys()) != len(replication_slot_valid_keys):
+        if self.config['replication_slot'].keys().sort() != replication_slot_valid_keys.sort():
             print('Invalid replication slot configuration')
             return False
 
         for table in self.config['tables']:
-            if len(table.keys()) != len(tables_valid_keys):
+            if table.keys().sort() != tables_valid_keys.sort():
                 print('Each table in tables configuration must have name and primary_key')
                 return False
         return True
