@@ -64,7 +64,7 @@ class PgReplicateElastic(object):
 
         tables_valid_keys = [
             u'name',
-            u'uprimary_key'
+            u'primary_key'
         ]
 
         if self.config.keys().sort() != valid_keys.sort():
@@ -95,9 +95,7 @@ class PgReplicateElastic(object):
             print('Invalid arguments')
             return
 
-        try:
-            self._load_config()
-        except:
+        if not self._load_config():
             print('Configuration file does not exist!')
             return
 
@@ -105,9 +103,10 @@ class PgReplicateElastic(object):
             print('Invalid configuration file format')
             return
 
-        psycopg2_connection_string = 'dbname=%s host=%s user=%s password=%s' % (
+        psycopg2_connection_string = 'dbname=%s host=%s port=%s user=%s password=%s' % (
             self.config['postgres']['database'],
             self.config['postgres']['host'],
+            self.config['postgres']['port'],
             self.config['postgres']['username'],
             self.config['postgres']['password']
         )
